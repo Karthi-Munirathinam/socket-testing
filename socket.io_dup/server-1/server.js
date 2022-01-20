@@ -3,10 +3,12 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
-const io = require('socket.io')(server);
+const io = require('socket.io')(server,{
+    path:'/message'
+});
 
 app.get('/message',(req, res, next) => {
-    io.on('connection', socket => {
+    io.on('connect', socket => {
         socket.on('connect-2222',(data,id) => {
             console.log(data,id)
         })
