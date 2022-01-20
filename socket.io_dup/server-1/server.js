@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const server = http.Server(app);
+console.log(server)
 const io = require('socket.io')(server,{
     path:'/message'
 });
